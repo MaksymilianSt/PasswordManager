@@ -1,6 +1,3 @@
-//
-// Created by Maximiliano on 13.12.2022.
-//
 
 #include <fstream>
 #include <iostream>
@@ -8,6 +5,10 @@
 #include "Account.h"
 #include "string"
 
+/**
+ *
+ * @return vector of all accounts stored in the file
+ */
 std::vector<Account> AccountRepository::getAll() {
     std::vector<std::string> toAccount = getListOfAccounts();
     std::vector<Account> accounts;
@@ -36,7 +37,11 @@ std::vector<Account> AccountRepository::getAll() {
     return accounts;
 }
 
-
+/**
+ * function saves account to the new file  and timestamp
+ * @param toSave account to be saved in the file
+ * @return account saved in the file
+ */
 Account AccountRepository::save(const Account &toSave) const{
     time_t rawtime;
     struct tm * timeinfo;
@@ -68,7 +73,10 @@ Account AccountRepository::save(const Account &toSave) const{
 
     return toSave;
 }
-
+/**
+ *
+ * @return vector of all account's (files) names that has been saved
+ */
 std::vector<std::string> AccountRepository::getListOfAccounts() {
     std::vector<std::string> list;
     std::ifstream File(repoSource);
@@ -82,7 +90,10 @@ std::vector<std::string> AccountRepository::getListOfAccounts() {
     }
     return list;
 }
-
+/**
+ * function updates given account and timestamp
+ * @param toUpdate account to update
+ */
 void AccountRepository::update(const Account &toUpdate)const {
     time_t rawtime;
     struct tm *timeinfo;
@@ -103,7 +114,10 @@ void AccountRepository::update(const Account &toUpdate)const {
 
     }
 }
-
+/**
+ * function deletes account , it deletes the file that account has been stored in,  and delete it from the list of all accounts (files)
+ * @param toDelete account to delete
+ */
 void AccountRepository::deleteAccount(const Account &toDelete) {
 
     if(remove((toDelete.getName()).c_str())==0){
@@ -128,7 +142,11 @@ void AccountRepository::deleteAccount(const Account &toDelete) {
     }
 
 }
-
+/**
+ *
+ * @param param - information that is being search in the accounts
+ * @return vector of accounts that contains specific param
+ */
 std::vector<Account> AccountRepository::getBy(const std::string &param)  {
     std::vector<Account> allAcc = getAll();
     std::vector<Account> byParam;

@@ -1,9 +1,11 @@
-//
-// Created by Maximiliano on 14.12.2022.
-//
+
 
 #include "Coder.h"
-
+/**
+ *
+ * @param toDecode string to decode
+ * @return decoded string
+ */
 std::string Coder::deCode(const std::string &toDecode) const{
     if(toDecode.empty()) return "";
     std::string decoded="";
@@ -15,7 +17,11 @@ std::string Coder::deCode(const std::string &toDecode) const{
 
     return decoded;
 }
-//TODO:const corr
+/**
+ *
+ * @param toCode - string to be coded
+ * @return coded string
+ */
 std::string Coder::code(const std::string &toCode)const {
     if(toCode.empty()) return "";
     std::string coded="";

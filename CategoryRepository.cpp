@@ -1,9 +1,10 @@
-//
-// Created by Maximiliano on 13.12.2022.
-//
+
 
 #include "CategoryRepository.h"
-
+/**
+ *
+ * @return vector of all saved categories from the file
+ */
 std::vector<std::string> CategoryRepository::getAll() const {
     std::vector<std::string> v;
     std::ifstream File(repoSource);
@@ -18,7 +19,10 @@ std::vector<std::string> CategoryRepository::getAll() const {
     }
     return v;
 }
-
+/**
+ *
+ * @param toSave category to be saved in the list of all categories
+ */
 void CategoryRepository::saveCategory(const std::string &toSave) const {
     if (findByName(toSave)) return;
 
@@ -29,7 +33,11 @@ void CategoryRepository::saveCategory(const std::string &toSave) const {
     }
 
 }
-
+/**
+ *
+ * @param name - name of category to be found
+ * @return true if category exist in the list of categories  or false if it doesnt
+ */
 bool CategoryRepository::findByName(const std::string &name) const {
     std::vector<std::string> categories = getAll();
     bool exist = false;
@@ -38,7 +46,10 @@ bool CategoryRepository::findByName(const std::string &name) const {
     }
     return exist;
 }
-
+/**
+ *  function deletes category from the list of all categories
+ * @param toDelete -name of category to be deleted
+ */
 void CategoryRepository::deleteCategory(const std::string &toDelete) {
     std::vector<std::string> listOfCategories = getAll();
     for (int i = 0; i < listOfCategories.size(); i++) {

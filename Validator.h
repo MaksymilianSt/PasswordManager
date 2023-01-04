@@ -1,6 +1,4 @@
-//
-// Created by Maximiliano on 15.12.2022.
-//
+
 
 #ifndef PROJEKTHASLO_VALIDATOR_H
 #define PROJEKTHASLO_VALIDATOR_H

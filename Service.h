@@ -1,6 +1,4 @@
-//
-// Created by Maximiliano on 15.12.2022.
-//
+
 
 #ifndef PROJEKTHASLO_SERVICE_H
 #define PROJEKTHASLO_SERVICE_H
